@@ -2,7 +2,7 @@
 
 > 給大家好看的圖片
 
-![](D:\Projects\village\image.jpg)
+![](.\image.jpg)
 
 ## 介紹
 
