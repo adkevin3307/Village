@@ -4,8 +4,43 @@
         <meta charset = "UTF-8">
         <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
         <title>Lv 2-1</title>
+        <script src = "https://code.jquery.com/jquery-1.12.3.min.js"></script>
+        <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+        <link rel = "stylesheet" type = "text/css" src = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.css">
+        <script type = "text/javascript">
+            function isValidDate(date) {
+                return date instanceof Date && !isNaN(date.getTime());
+            }
+
+            $(function() {
+                $('#datepicker').datepicker({
+                    format: 'yyyy/mm/dd',
+                    language: 'zh-TW',
+                });
+                $('#submit').click(function() {
+                    var today = new Date();
+                    var birthday = new Date($('#datepicker').val());
+                    var year = today.getFullYear() - birthday.getFullYear();
+                    var month = today.getMonth() - birthday.getMonth();
+                    var date = today.getDate() - birthday.getDate();
+                    if (today - birthday < 0 || !isValidDate(birthday)) {
+                        window.alert('Choose Correct Birthday.');
+                        $('#datepicker').val('').datepicker('update');
+                        return;
+                    }
+                    if (month < 0 || (month == 0 && date < 0)) year--;
+                    if (year < 18) window.alert('GO TO DISNEY');
+                    else window.alert('Pass');
+                });
+            });
+        </script>
     </head>
     <body>
-        
+        <div>
+            Birthday: <input type = 'text' id = 'datepicker'>
+            <button id = 'submit'>Submit</button>
+        </div>
     </body>
 </html>
