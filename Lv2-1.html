@@ -31,7 +31,10 @@
                         return;
                     }
                     if (month < 0 || (month == 0 && date < 0)) year--;
-                    if (year < 18) window.alert('GO TO DISNEY');
+                    if (year < 18) {
+                        window.alert('GO TO DISNEY');
+                        window.location.href = "https://www.thewaltdisneycompany.com/";
+                    }
                     else window.alert('Pass');
                 });
             });
