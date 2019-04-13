@@ -1,3 +1,3 @@
 # Newbie Village
 
-Challenge for newbie village .
+Challenge for newbie village.
